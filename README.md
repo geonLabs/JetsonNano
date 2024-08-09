@@ -37,8 +37,8 @@ sudo update-binfmts --import qemu-aarch64
 
 ## 5. L4T Driver Package(BSP), Sample Root Filesystem 설치
 ```
-wget https://developer.nvidia.com/embedded/l4t/r32_release_v7.1/t210/jetson-210_linux_r32.7.1_aarch64.tbz2
-wget https://developer.nvidia.com/embedded/l4t/r32_release_v7.1/t210/tegra_linux_sample-root-filesystem_r32.7.1_aarch64.tbz2
+wget [https://developer.nvidia.com/embedded/l4t/r32_release_v7.1/t210/jetson-210_linux_r32.7.1_aarch64.tbz2](https://developer.nvidia.com/embedded/l4t/r32_release_v7.1/t210/jetson-210_linux_r32.7.1_aarch64.tbz2)
+wget [https://developer.nvidia.com/embedded/l4t/r32_release_v7.1/t210/tegra_linux_sample-root-filesystem_r32.7.1_aarch64.tbz2](https://developer.nvidia.com/embedded/l4t/r32_release_v7.1/t210/tegra_linux_sample-root-filesystem_r32.7.1_aarch64.tbz2)
 
 sudo tar xfp jetson-210_ #tab 치세요
 sudo tar xfp tegra_linux_sample-root-filesystem_r32.7.1_aarch64.tbz2 -C Linux_for_Tegra/rootfs

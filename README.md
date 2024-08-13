@@ -75,4 +75,89 @@ sudo e2fsck -f /dev/sdX2
 sudo resize2fs /dev/sdX2
 ```
 
-## 7.
+## 7. 필수 라이브러리 설치
+lightdm
+```
+sudo apt-get update
+sudo apt-get install lightdm
+```
+python3.8 설치  
+```
+1.update & upgrade
+sudo apt update
+sudo apt upgrade
+
+2. 필요한 패키지 설치
+sudo apt install build-essential libssl-dev zlib1g-dev libncurses5-dev libncursesw5-dev libreadline-dev libsqlite3-dev libgdbm-dev libdb5.3-dev libbz2-dev libexpat1-dev liblzma-dev libffi-dev libc6-dev
+
+3. python3.8 소스코드 받기
+wget https://www.python.org/ftp/python/3.8.12/Python-3.8.12.tar.xz
+
+4. 압축 풀기
+tar -xf Python-3.8.12.tar.xz
+cd Python-3.8.12
+
+5. Build
+./configure --enable-optimizations
+make -j4
+
+6. 파이썬 버전에 따른 설
+sudo make altinstall
+python3.8 --version
+```
+python3.8로 기본 파이썬으로 변경  
+```
+$ which python3.8
+/usr/local/bin/python3.8
+$ ls -al /usr/local/bin/python3.8
+-rwxr-xr-x 1 root root 16467456 8月  13 10:46 /usr/local/bin/python3.8
+$ sudo update-alternatives --install /usr/bin/python python /usr/bin/python2.7 1
+$ sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.6 2
+$ sudo update-alternatives --install /usr/bin/python python /usr/local/bin/python3.8 3
+
+$ sudo update-alternatives --config python # 확인
+  Selection    Path                      Priority   Status
+------------------------------------------------------------
+* 0            /usr/local/bin/python3.8   3         auto mode
+  1            /usr/bin/python2.7         1         manual mode
+  2            /usr/bin/python3.6         2         manual mode
+  3            /usr/local/bin/python3.8   3         manual mode
+
+Press <enter> to keep the current choice[*], or type selection number: 0
+```
+
+jtop  
+```
+sudo apt-get update
+sudo apt-get install python-pip
+sudo -H pip install -U jetson-stats
+sudo reboot
+
+sudo systemctl restart jtop.service
+sudo systemctl enable jtop.service
+systemctl is-enabled jtop.service
+systemctl status jtop.service
+
+jtop
+```
+
+opencv
+```
+sudo apt-get update
+sudo apt-get upgrade
+
+sudo apt-get install dphys-swapfile
+
+----------------------------------------------------------------------------
+# 두 Swap파일의 값이 다음과 같도록 값을 추가하거나, 파일 내 주석을 해제합니다.
+# CONF_SWAPSIZE=4096
+# CONF_SWAPFACTOR=2
+# CONF_MAXSWAP=4096
+----------------------------------------------------------------------------
+
+sudo vim /sbin/dphys-swapfile
+sudo vim /etc/dphys-swapfile
+
+sudo reboot
+```
+

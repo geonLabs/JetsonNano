@@ -158,6 +158,10 @@ sudo apt-get install dphys-swapfile
 sudo vim /sbin/dphys-swapfile
 sudo vim /etc/dphys-swapfile
 
+git clone https://github.com/JetsonHacksNano/installSwapfile
+cd installSwapfile
+./installSwapfile.sh
+
 sudo reboot
 
 sudo apt-get install -y  \

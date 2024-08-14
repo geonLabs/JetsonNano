@@ -159,5 +159,58 @@ sudo vim /sbin/dphys-swapfile
 sudo vim /etc/dphys-swapfile
 
 sudo reboot
+
+sudo apt-get install -y  \
+    libtesseract4 \
+    libatlas3-base \
+    python3-pip \
+    python3.8 \
+    python3.8-dev
+
+sudo apt-get clean
+python3.8 -m pip install numpy==1.19.4
+
+----------------------------------------------------------------------------
+# cmake 부분 수정
+cmake  -D  CMAKE_BUILD_TYPE=RELEASE  \
+-D  CMAKE_INSTALL_PREFIX=/usr  \
+-D  OPENCV_EXTRA_MODULES_PATH=~/opencv_contrib/modules  \
+-D  EIGEN_INCLUDE_PATH=/usr/include/eigen3  \
+-D  WITH_OPENCL=OFF  \
+-D  CUDA_ARCH_BIN=${ARCH}  \
+-D  CUDA_ARCH_PTX=${PTX}  \
+-D  WITH_CUDA=ON  \
+-D  WITH_CUDNN=ON  \
+-D  WITH_CUBLAS=ON  \
+-D  ENABLE_FAST_MATH=ON  \
+-D  CUDA_FAST_MATH=ON  \
+-D  OPENCV_DNN_CUDA=ON  \
+-D  ENABLE_NEON=ON  \
+-D  WITH_QT=OFF  \
+-D  WITH_OPENMP=ON  \
+-D  BUILD_TIFF=ON  \
+-D  WITH_FFMPEG=ON  \
+-D  WITH_GSTREAMER=ON  \
+-D  WITH_TBB=ON  \
+-D  BUILD_TBB=ON  \
+-D  BUILD_TESTS=OFF  \
+-D  WITH_EIGEN=ON  \
+-D  WITH_V4L=ON  \
+-D  WITH_LIBV4L=ON  \
+-D  WITH_PROTOBUF=ON  \
+-D  OPENCV_ENABLE_NONFREE=ON  \
+-D  INSTALL_C_EXAMPLES=OFF  \
+-D  INSTALL_PYTHON_EXAMPLES=OFF  \
+-D  PYTHON3_EXECUTABLE=/usr/local/bin/python3.8  \
+-D  PYTHON3_INCLUDE_DIR=/usr/local/include/python3.8  \
+-D  PYTHON3_LIBRARY=/usr/lib/aarch64-linux-gnu/libpython3.8.so  \
+-D  PYTHON3_NUMPY_INCLUDE_DIRS=/usr/local/lib/python3.8/site-packages/numpy/core/include  \
+-D  PYTHON3_PACKAGES_PATH=/usr/local/lib/python3.8/site-packages  \
+-D  OPENCV_GENERATE_PKGCONFIG=ON  \
+-D  BUILD_EXAMPLES=OFF  \
+-D  CMAKE_CXX_FLAGS="-march=native  -mtune=native"  \
+-D  CMAKE_C_FLAGS="-march=native  -mtune=native"  ..
+
+----------------------------------------------------------------------------
 ```
 

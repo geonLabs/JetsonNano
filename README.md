@@ -217,4 +217,5 @@ cmake  -D  CMAKE_BUILD_TYPE=RELEASE  \
 
 ----------------------------------------------------------------------------
 ```
-
+## 8. Fan setting
+`sudo sh -c 'echo 100 > /sys/devices/pwm-fan/target_pwm'` # fan speed 조절 Max : 255  

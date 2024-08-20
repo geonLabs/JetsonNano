@@ -219,3 +219,7 @@ cmake  -D  CMAKE_BUILD_TYPE=RELEASE  \
 ```
 ## 8. Fan setting
 `sudo sh -c 'echo 100 > /sys/devices/pwm-fan/target_pwm'` # fan speed 조절 Max : 255  
+
+## 9. CSI camtest (IMX219)
+`gst-launch-1.0 nvarguscamerasrc ! 'video/x-raw(memory:NVMM), width=1920, height=1080, format=NV12, framerate=30/1' ! nvoverlaysink`  
+`gst-launch-1.0 nvarguscamerasrc sensor_id=1 ! 'video/x-raw(memory:NVMM), width=1920, height=1080, format=NV12, framerate=30/1' ! nvoverlaysink`  if you want to change camera2
